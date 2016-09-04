@@ -1,0 +1,59 @@
+name:                untest
+version:             0.1.0.0
+synopsis:            Language agnostic executable based unit testing
+description:         Please see README.md
+homepage:            https://github.com/NickHu/untest#readme
+license:             BSD3
+license-file:        LICENSE
+author:              Nick Hu
+maintainer:          me@nickhu.co.uk
+copyright:           Copyright: © 2016 Nick Hu
+category:            Testing
+build-type:          Simple
+-- extra-source-files:
+cabal-version:       >=1.10
+
+library
+  hs-source-dirs:      src
+  exposed-modules:     Untest.Test
+                     , Untest.Parser
+                     , Untest.Report.Text
+  build-depends:       base >= 4.7 && < 5
+                     , basic-prelude
+                     , async
+                     , bytestring
+                     , aeson
+                     , containers
+                     , filepath
+                     , list-t
+                     , process
+                     , text
+                     , stm
+                     , stm-containers
+                     , yaml
+  default-language:    Haskell2010
+  extensions:          OverloadedStrings
+
+executable untest
+  hs-source-dirs:      app
+  main-is:             Main.hs
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+  build-depends:       base
+                     , basic-prelude
+                     , text
+                     , untest
+  default-language:    Haskell2010
+  extensions:          OverloadedStrings
+
+test-suite untest-test
+  type:                exitcode-stdio-1.0
+  hs-source-dirs:      test
+  main-is:             Spec.hs
+  build-depends:       base
+                     , untest
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+  default-language:    Haskell2010
+
+source-repository head
+  type:     git
+  location: https://github.com/NickHu/untest
