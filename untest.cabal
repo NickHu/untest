@@ -22,7 +22,6 @@ library
                      , basic-prelude
                      , async
                      , bytestring
-                     , aeson
                      , containers
                      , filepath
                      , list-t
@@ -32,7 +31,8 @@ library
                      , stm-containers
                      , yaml
   default-language:    Haskell2010
-  extensions:          OverloadedStrings
+  default-extensions:  OverloadedStrings
+  other-extensions:    NoImplicitPrelude
 
 executable untest
   hs-source-dirs:      app
@@ -43,7 +43,7 @@ executable untest
                      , text
                      , untest
   default-language:    Haskell2010
-  extensions:          OverloadedStrings
+  default-extensions:  OverloadedStrings
 
 test-suite untest-test
   type:                exitcode-stdio-1.0

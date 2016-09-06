@@ -2,24 +2,20 @@ spec:
   - bin: hello
     tests:
       - name: Hello world
-        in:
-          none: true
         out:
           stdout: "Hello world"
       - name: This test should fail
-        in:
-          none: true
         out:
           stdout: "Failure"
   - bin: factorial
     tests:
       - name: Factorial 2
-        in:
-          stdin: 2
+        args:
+          - 2
         out:
           stdout: 2
       - name: Factorial 3
-        in:
-          stdin: 3
+        args:
+          - 3
         out:
           stdout: 6

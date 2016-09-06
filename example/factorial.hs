@@ -1,5 +1,7 @@
+import System.Environment (getArgs)
+
 main :: IO ()
-main = getLine >>= putStrLn . show . factorial . read
+main = getArgs >>= print . factorial . read . head
 
 factorial :: Integral a => a -> a
 factorial 0 = 1
